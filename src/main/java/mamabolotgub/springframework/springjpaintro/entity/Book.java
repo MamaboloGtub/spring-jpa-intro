@@ -33,8 +33,8 @@ public class Book {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Book other = (Book) obj;
-        return Objects.equals(id, other.id);
+        Book book = (Book) obj;
+        return Objects.equals(id, book.id);
     }
     public Book() {
 
