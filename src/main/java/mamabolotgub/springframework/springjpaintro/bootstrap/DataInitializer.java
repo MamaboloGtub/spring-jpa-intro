@@ -22,8 +22,10 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception{
         Book book1 = new Book("The Concise", "9781788161565", "Profile Books");
         Book book2 = new Book("The Law", "4523167", "O'reilly");
+        Book book3 = new Book("Biko", "12093", "Jacana");
         Book savedBook1 = bookRepository.save(book1);
         Book savedBook2 = bookRepository.save(book2);
+        Book savedBook3 = bookRepository.save(book3);
 
         bookRepository.findAll().forEach(book -> {
             System.out.println("Book Id: " + book.getId());
