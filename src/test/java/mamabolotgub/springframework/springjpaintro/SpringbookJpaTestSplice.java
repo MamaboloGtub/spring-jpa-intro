@@ -5,12 +5,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.annotation.Commit;
 
 import mamabolotgub.springframework.springjpaintro.entity.Book;
 import mamabolotgub.springframework.springjpaintro.repositories.BookRepository;
 
 @DataJpaTest
+@ComponentScan(basePackages = {"mamabolotgub.springframework.springjpaintro.bootstrap"})
 public class SpringbookJpaTestSplice {
 
     @Autowired
@@ -22,6 +24,7 @@ public class SpringbookJpaTestSplice {
     @Test
     void testJpaSplice() {
         long countBefore = bookRepository.count();
+        assertThat(countBefore).isEqualTo(3);
         bookRepository.save(new Book("maths Lit","8520321546", "van Schaik"));
         long countAfter = bookRepository.count();
 
@@ -31,6 +34,6 @@ public class SpringbookJpaTestSplice {
     @Test
     void testJpaSpliceTransactions() {
         long countBefore = bookRepository.count();
-        assertThat(countBefore).isEqualTo(1);
+        assertThat(countBefore).isEqualTo(4);
     }
 }
