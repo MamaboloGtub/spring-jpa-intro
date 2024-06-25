@@ -20,6 +20,8 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception{
+        bookRepository.deleteAll();
+
         Book book1 = new Book("The Concise", "9781788161565", "Profile Books");
         Book book2 = new Book("The Law", "4523167", "O'reilly");
         Book book3 = new Book("Biko", "12093", "Jacana");
