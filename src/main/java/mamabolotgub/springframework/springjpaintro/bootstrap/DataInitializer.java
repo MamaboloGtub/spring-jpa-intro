@@ -1,6 +1,7 @@
 package mamabolotgub.springframework.springjpaintro.bootstrap;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import mamabolotgub.springframework.springjpaintro.entity.Book;
@@ -9,6 +10,7 @@ import mamabolotgub.springframework.springjpaintro.repositories.BookRepository;
 /**
  * @Author Tshepo Mahudu
  */
+@Profile({"local", "default"})
 @Component
 public class DataInitializer implements CommandLineRunner {
 
