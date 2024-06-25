@@ -2,11 +2,14 @@ package mamabolotgub.springframework.springjpaintro.entity;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 
+@Data
 @Entity
 public class Book {
 
@@ -14,8 +17,13 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "isbn")
     private String isbn;
+
+    @Column(name = "publisher")
     private String publisher;
 
 

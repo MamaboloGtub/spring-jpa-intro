@@ -1,35 +1,15 @@
-USE master;
-GO
+CREATE DATABASE bookdb WITH ENCODING 'UTF8';
+-- Create the admin user
+CREATE USER super_user WITH PASSWORD 'admin123';
+-- Create the limited user
+CREATE USER just_user WITH PASSWORD 'limited123';
+-- Grant all privileges on the database to the admin user
+GRANT ALL PRIVILEGES ON DATABASE bookdb TO super_user;
+-- Grant usage on the schema
+GRANT USAGE ON SCHEMA public TO just_user;
 
-IF EXISTS (SELECT name FROM sys.databases WHERE name = N'udemybookdb')
-    DROP DATABASE udemybookdb;
-GO
+-- Grant select, insert, update, and delete on all tables in the schema to the limited user
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO just_user;
 
-IF EXISTS (SELECT name FROM sys.server_principals WHERE name = N'bookadmin')
-    DROP LOGIN bookadmin;
-GO
-
-IF EXISTS (SELECT name FROM sys.server_principals WHERE name = N'bookuser')
-    DROP LOGIN bookuser;
-GO
-
-CREATE DATABASE udemybookdb;
-GO
-
-CREATE LOGIN bookadmin WITH PASSWORD = 'admin123';
-GO
-
-CREATE LOGIN bookuser WITH PASSWORD = 'user123';
-GO
-
-USE bookdb;
-GO
-
-CREATE USER bookadmin FOR LOGIN bookadmin;
-CREATE USER bookuser FOR LOGIN bookuser;
-GO
-
-ALTER ROLE db_owner ADD MEMBER bookadmin;
-ALTER ROLE db_datareader ADD MEMBER bookuser;
-ALTER ROLE db_datawriter ADD MEMBER bookuser;
-GO
+-- Ensure the limited user can access future tables
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO just_user;
