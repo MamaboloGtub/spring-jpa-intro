@@ -8,17 +8,17 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.test.context.TestPropertySource;
 
 import mamabolotgub.springframework.springjpaintro.repositories.BookRepository;
 
 /**
  * Tshepo M Mahudu
  */
+//@ActiveProfiles("local")
 @DataJpaTest
 @ComponentScan(basePackages = {"mamabolotgub.springframework.springjpaintro.bootstrap"})
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-@TestPropertySource(locations = "classpath:application.properties")
+//@TestPropertySource(locations = "classpath:application.properties")
 public class PostgreSqlIntegrationTest {
     @Autowired
     BookRepository bookRepository;
