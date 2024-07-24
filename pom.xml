@@ -79,6 +79,9 @@
                     <url>jdbc:postgresql://localhost:5432/bookdb</url>
                     <username>admin_user</username>
                     <password>admin123</password>
+                    <outputChangeLogFile>changelog.xml</outputChangeLogFile>
+                    <changeSetAuthor>Tshepo</changeSetAuthor>
+                    <changelogSchemaName>bookdb</changelogSchemaName>
                 </configuration>
                 <dependencies>
                     <dependency>
