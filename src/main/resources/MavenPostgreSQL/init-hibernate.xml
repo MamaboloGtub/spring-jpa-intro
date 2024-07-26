@@ -8,6 +8,7 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
         http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
- <include file="MavenPostgreSQL/dbchangelog.xml" />
- <include file="MavenPostgreSQL/learnerchangelog.xml" />
+    <changeSet  id="2"  author="Tshepo"> 
+        <sql>insert into book_seq values (0)</sql>
+    </changeSet>
 </databaseChangeLog>
