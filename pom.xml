@@ -50,11 +50,6 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-            <version>4.28.0</version>
-        </dependency>
 	</dependencies>
 	
 	<profiles>
@@ -76,21 +71,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <version>4.24.0</version>
-                <configuration>
-                    <propertyFile>src/main/resources/MavenPostgreSQL/liquibase.properties</propertyFile>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.postgresql</groupId>
-                        <artifactId>postgresql</artifactId>
-                        <version>42.7.3</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
 		</plugins>
 	</build>
 	<repositories>
